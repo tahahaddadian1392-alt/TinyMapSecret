@@ -11,21 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Geode CLI
-        uses: geode-sdk/cli@main
+      - name: Build Android mod
+        id: build
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          target: Android64
 
-      - name: Install Android SDK binaries
-        run: geode sdk install-binaries -p android64
-
-      - name: Build mod
-        run: geode build -p android64
-
-      - name: Upload mod
+      - name: Upload Geode file
         uses: actions/upload-artifact@v4
         with:
-          name: TinyMapSecret-android64
-          path: build-android64/*.geode
-          if-no-files-found: error
+          name: TinyMapSecret-Android64
+          path: ${{ steps.build.outputs.build-output }}

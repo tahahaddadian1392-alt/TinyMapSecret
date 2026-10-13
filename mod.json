@@ -1,0 +1,11 @@
+{
+  "geode": "v4.0.0",
+  "gd": {
+    "android": "2.2081"
+  },
+  "id": "dino.tinymapsecret",
+  "name": "TinyMap Secret",
+  "version": "v0.1.0",
+  "developer": "Dino",
+  "description": "A hidden tinymap easter egg"
+}
